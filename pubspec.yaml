@@ -1,6 +1,6 @@
 name: credit_card_slider
-description: A credit card slider
-version: 1.0.0
+description: A credit card slider with ability to add custom cards using the CreditCard widget. Credit card slider can also be customised
+version: 1.0.0+1
 homepage: https://github.com/GursheeshSingh/creditcard_slider
 
 environment:
