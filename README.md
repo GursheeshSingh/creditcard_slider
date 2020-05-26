@@ -24,6 +24,39 @@ This project provides a credit card slider
 * Credit card of type visa
 * Shows a card holder name
 
+## Creating Card Slider
+
+    @override
+    Widget build(BuildContext context) {
+        return Scaffold(
+          body: Center(
+            child: CreditCardSlider(
+              _creditCards, //List of credit cards
+            ),
+          ),
+        );
+    }
+
+### Changing percent of upper card shown
+
+Use field ***percentOfUpperCard*** of **CreditCardSlider**
+
+**NOTE:** Value must lie between 0 and pi / 2
+
+    @override
+    Widget build(BuildContext context) {
+        return Scaffold(
+          body: Center(
+            child: CreditCardSlider(
+              _creditCards,
+              percentOfUpperCard: pi / 2,
+            ),
+          ),
+        );
+    }
+
+![Demo 1](/screenshots/screenshot_2.gif)
+
 ### Card Background Types
 
 * Solid Color
