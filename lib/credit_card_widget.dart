@@ -1,10 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:creditcardslider/validity.dart';
 import 'package:flutter/material.dart';
 
 import 'card_background.dart';
 import 'card_company.dart';
 import 'card_network_type.dart';
+import 'validity.dart';
 
 class CreditCard extends StatelessWidget {
   final CardBackground cardBackground;
@@ -44,10 +44,12 @@ class CreditCard extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Align(
-            alignment: Alignment.centerLeft,
-            child: company.widget,
-          ),
+          company != null
+              ? Align(
+                  alignment: Alignment.centerLeft,
+                  child: company.widget,
+                )
+              : SizedBox.shrink(),
           showChip ? _buildChip() : SizedBox.shrink(),
           Column(
             children: <Widget>[
@@ -97,17 +99,22 @@ class CreditCard extends StatelessWidget {
       child: Image.asset(
         'images/chip.png',
         height: 25,
+        package: 'credit_card_slider',
       ),
     );
   }
 
   _buildCardNumber() {
+    if (cardNumber == null || cardNumber.trim() == "") {
+      return SizedBox.shrink();
+    }
     return Align(
       alignment: Alignment.centerLeft,
       child: Text(
         cardNumber,
         style: TextStyle(
           fontFamily: 'creditcard',
+          package: 'credit_card_slider',
           color: numberColor,
           fontSize: 11,
         ),
@@ -139,6 +146,7 @@ class CreditCard extends StatelessWidget {
                       color: validityColor,
                       fontSize: 10,
                       fontFamily: 'creditcard',
+                      package: 'credit_card_slider',
                     ),
                   ),
                 ],
@@ -163,6 +171,7 @@ class CreditCard extends StatelessWidget {
                 color: validityColor,
                 fontSize: 10,
                 fontFamily: 'creditcard',
+                package: 'credit_card_slider',
               ),
             ),
           ],
@@ -175,18 +184,21 @@ class CreditCard extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
-        Expanded(
-          flex: 3,
-          child: AutoSizeText(
-            cardHolderName.toUpperCase(),
-            maxLines: 1,
-            minFontSize: 8,
-            style: TextStyle(
-              fontFamily: 'creditcard',
-              color: cardHolderNameColor,
-            ),
-          ),
-        ),
+        cardHolderName != null
+            ? Expanded(
+                flex: 3,
+                child: AutoSizeText(
+                  cardHolderName.toUpperCase(),
+                  maxLines: 1,
+                  minFontSize: 8,
+                  style: TextStyle(
+                    fontFamily: 'creditcard',
+                    color: cardHolderNameColor,
+                    package: 'credit_card_slider',
+                  ),
+                ),
+              )
+            : SizedBox.shrink(),
         SizedBox(width: 16),
         Expanded(
           child: _buildCardNetworkType(),

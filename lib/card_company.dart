@@ -17,6 +17,7 @@ class CardCompany {
     Image.asset(
       'images/virgin.png',
       height: 40,
+      package: 'credit_card_slider',
     ),
   );
 
@@ -24,6 +25,7 @@ class CardCompany {
     Image.asset(
       'images/sbi_card.gif',
       height: 35,
+      package: 'credit_card_slider',
     ),
   );
 
@@ -31,6 +33,7 @@ class CardCompany {
     Image.asset(
       'images/sbi.png',
       height: 35,
+      package: 'credit_card_slider',
     ),
   );
 
@@ -38,6 +41,7 @@ class CardCompany {
     Image.asset(
       'images/kotak_logo.png',
       height: 35,
+      package: 'credit_card_slider',
     ),
   );
 
@@ -45,6 +49,7 @@ class CardCompany {
     Image.asset(
       'images/axis_bank_logo.png',
       height: 35,
+      package: 'credit_card_slider',
     ),
   );
 
@@ -53,6 +58,7 @@ class CardCompany {
       'images/axis_bank_logo.png',
       height: 35,
       color: Colors.white,
+      package: 'credit_card_slider',
     ),
   );
 
@@ -60,6 +66,7 @@ class CardCompany {
     Image.asset(
       'images/citibank_logo.png',
       height: 25,
+      package: 'credit_card_slider',
     ),
   );
 
@@ -67,6 +74,7 @@ class CardCompany {
     Image.asset(
       'images/hdfc_logo.png',
       height: 25,
+      package: 'credit_card_slider',
     ),
   );
 
@@ -74,6 +82,7 @@ class CardCompany {
     Image.asset(
       'images/hsbc_logo.png',
       height: 30,
+      package: 'credit_card_slider',
     ),
   );
 
@@ -81,6 +90,7 @@ class CardCompany {
     Image.asset(
       'images/icici_bank_logo.png',
       height: 25,
+      package: 'credit_card_slider',
     ),
   );
 
@@ -88,6 +98,7 @@ class CardCompany {
     Image.asset(
       'images/indusland.png',
       height: 15,
+      package: 'credit_card_slider',
     ),
   );
 
@@ -95,6 +106,7 @@ class CardCompany {
     Image.asset(
       'images/yes_bank_logo.png',
       height: 35,
+      package: 'credit_card_slider',
     ),
   );
 

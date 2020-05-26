@@ -5,6 +5,7 @@ class CardNetworkType {
     Image.asset(
       'images/visa.jpeg',
       height: 35,
+      package: 'credit_card_slider',
     ),
   );
 
@@ -12,6 +13,7 @@ class CardNetworkType {
     Image.asset(
       'images/mastercard.png',
       height: 40,
+      package: 'credit_card_slider',
     ),
   );
 
@@ -19,6 +21,7 @@ class CardNetworkType {
     Image.asset(
       'images/visa_basic.png',
       height: 20,
+      package: 'credit_card_slider',
     ),
   );
 
@@ -26,6 +29,7 @@ class CardNetworkType {
     Image.asset(
       'images/rupay_logo.png',
       height: 40,
+      package: 'credit_card_slider',
     ),
   );
 

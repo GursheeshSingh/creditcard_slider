@@ -1,21 +1,17 @@
-library creditcardslider;
-
 import 'dart:math';
 
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
-import 'credit_card_widget.dart';
-
-class CreditCardSlider extends StatelessWidget {
+class PageSlider extends StatelessWidget {
   final _pageController = PageController(
     viewportFraction: 0.3,
   );
 
-  final List<CreditCard> creditCards;
+  final List<Widget> cards;
   final double percentOfUpperCard;
 
-  CreditCardSlider(
-    this.creditCards, {
+  PageSlider(
+    this.cards, {
     this.percentOfUpperCard = 0.35,
   }) {
     assert(percentOfUpperCard >= 0);
@@ -27,7 +23,7 @@ class CreditCardSlider extends StatelessWidget {
     return PageView.builder(
       controller: _pageController,
       scrollDirection: Axis.vertical,
-      itemCount: creditCards.length,
+      itemCount: cards.length,
       itemBuilder: (context, index) => _builder(index),
     );
   }
@@ -68,7 +64,7 @@ class CreditCardSlider extends StatelessWidget {
           ),
         );
       },
-      child: creditCards[index],
+      child: cards[index],
     );
   }
 }
