@@ -98,6 +98,9 @@ class _HomePageState extends State<HomePage> {
       body: Center(
         child: CreditCardSlider(
           _creditCards,
+          onCardClicked: (index) {
+            print('Clicked at index: $index');
+          },
 //          percentOfUpperCard: pi / 2,
         ),
       ),

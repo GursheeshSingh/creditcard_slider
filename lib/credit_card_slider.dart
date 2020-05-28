@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 
 import 'credit_card_widget.dart';
 
+typedef void OnCardClicked(int index);
+
 class CreditCardSlider extends StatelessWidget {
   final _pageController = PageController(
     viewportFraction: 0.3,
@@ -13,9 +15,11 @@ class CreditCardSlider extends StatelessWidget {
 
   final List<CreditCard> creditCards;
   final double percentOfUpperCard;
+  final OnCardClicked onCardClicked;
 
   CreditCardSlider(
     this.creditCards, {
+    this.onCardClicked,
     this.percentOfUpperCard = 0.35,
   }) {
     assert(percentOfUpperCard >= 0);
@@ -68,7 +72,14 @@ class CreditCardSlider extends StatelessWidget {
           ),
         );
       },
-      child: creditCards[index],
+      child: GestureDetector(
+        onTap: () {
+          if (onCardClicked != null) {
+            onCardClicked(index);
+          }
+        },
+        child: creditCards[index],
+      ),
     );
   }
 }
