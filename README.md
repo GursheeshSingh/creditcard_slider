@@ -57,6 +57,24 @@ Use field ***percentOfUpperCard*** of **CreditCardSlider**
 
 ![Demo 1](/screenshots/screenshot_2.gif)
 
+## Card click listener
+
+    @override
+    Widget build(BuildContext context) {
+        return Scaffold(
+            body: Center(
+                child: CreditCardSlider(
+                    _creditCards,
+                    onCardClicked: (index) {
+                        print('Clicked at index: $index');
+                    },
+                ),
+            ),
+        );
+    }
+
+* Added in 1.0.0+2
+
 ### Card Background Types
 
 * Solid Color
