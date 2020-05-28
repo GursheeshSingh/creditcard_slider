@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:credit_card_slider/card_background.dart';
 import 'package:credit_card_slider/card_company.dart';
 import 'package:credit_card_slider/card_network_type.dart';
@@ -100,7 +98,7 @@ class _HomePageState extends State<HomePage> {
       body: Center(
         child: CreditCardSlider(
           _creditCards,
-          percentOfUpperCard: pi / 2,
+//          percentOfUpperCard: pi / 2,
         ),
       ),
     );
