@@ -4,8 +4,6 @@ This project provides a credit card slider
 
 ## Screenshots
 
-**IMPORTANT:** Check github for screenshots
-
 ![Demo 1](/screenshots/screenshot_1.gif)
 
 ## Creating Credit Cards
@@ -139,7 +137,7 @@ Use field ***percentOfUpperCard*** of **CreditCardSlider**
         company: CardCompany.hdfc,
     )
 
-![Image card](/screenshots/hdfc_credit_card.png)
+![Image card](https://github.com/GursheeshSingh/creditcard_slider/raw/master/screenshots/hdfc_credit_card.png)
 
 ### Creating a custom company card
 
@@ -169,7 +167,7 @@ Use field ***percentOfUpperCard*** of **CreditCardSlider**
         ),
       ),
 
-![Image card](/screenshots/valid_till_card.png)
+![Image card](https://github.com/GursheeshSingh/creditcard_slider/raw/master/screenshots/valid_till_card.png)
 
 ### Adding Valid From and Valid Till
 
@@ -187,7 +185,7 @@ Use field ***percentOfUpperCard*** of **CreditCardSlider**
         ),
       ),
 
-![Image card](/screenshots/valid_from_card.png)
+![Image card](https://github.com/GursheeshSingh/creditcard_slider/raw/master/screenshots/valid_from_card.png)
 
 ### Hiding chip
 
@@ -208,7 +206,7 @@ Set ***showChip*** to false
         ),
       ),
 
-![Image card](/screenshots/hiding_chip.png)
+![Image card](https://github.com/GursheeshSingh/creditcard_slider/raw/master/screenshots/hiding_chip.png)
 
 ### Changing Text color
 
@@ -229,7 +227,7 @@ Set ***showChip*** to false
         cardHolderNameColor: Colors.black,
       ),
 
-![Image card](/screenshots/white_card_black_text.png)
+![Image card](https://github.com/GursheeshSingh/creditcard_slider/raw/master/screenshots/white_card_black_text.png)
 
 ### List of companies
 
@@ -237,64 +235,65 @@ Set ***showChip*** to false
 
         company: CardCompany.americanExpress
 
-![Image card](/screenshots/american_express.png)
+![Image card](https://github.com/GursheeshSingh/creditcard_slider/raw/master/screenshots/american_express.png)
 
 * AxisBank
 
         company: CardCompany.axisBank
 
-![Image card](/screenshots/axis_bank_card.png)
+![Image card](https://github.com/GursheeshSingh/creditcard_slider/raw/master/screenshots/axis_bank_card.png)
 
         company: CardCompany.axisBankWhite
 
-![Image card](/screenshots/axis_bank_white_card.png)
+![Image card](https://github.com/GursheeshSingh/creditcard_slider/raw/master/screenshots/axis_bank_white_card.png)
 
 * Citi Bank
 
         company: CardCompany.citiBank
 
-![Image card](/screenshots/citi_bank_card.png)
+![Image card](https://github.com/GursheeshSingh/creditcard_slider/raw/master/screenshots/citi_bank_card.png)
 
 * HDFC
+
 * HSBC
 
         company: CardCompany.hsbc
 
-![Image card](/screenshots/hsbc_card.png)
+![Image card](https://github.com/GursheeshSingh/creditcard_slider/raw/master/screenshots/hsbc_card.png)
 
 * ICICI
 
         company: CardCompany.icici
 
-![Image card](/screenshots/icici_card.png)
+![Image card](https://github.com/GursheeshSingh/creditcard_slider/raw/master/screenshots/icici_card.png)
 
 * INDUSLAND
 
         company: CardCompany.indusland
 
-![Image card](/screenshots/indusland_card.png)
+![Image card](https://github.com/GursheeshSingh/creditcard_slider/raw/master/screenshots/indusland_card.png)
 
 * Kotak
 
         company: CardCompany.kotak
 
-![Image card](/screenshots/kotak_card.png)
+![Image card](https://github.com/GursheeshSingh/creditcard_slider/raw/master/screenshots/kotak_card.png)
 
 * SBI
 
         company: CardCompany.sbi
 
-![Image card](/screenshots/sbi_card.png)
+![Image card](https://github.com/GursheeshSingh/creditcard_slider/raw/master/screenshots/sbi_card.png)
 
 * Virgin
 
         company: CardCompany.virgin
 
-![Image card](/screenshots/virgin_card.png)
+![Image card](https://github.com/GursheeshSingh/creditcard_slider/raw/master/screenshots/virgin_card.png)
 
 * YESBANK
 
         company: CardCompany.yesBank
 
-![Image card](/screenshots/yes_bank_card.png)
+![Image card](https://github.com/GursheeshSingh/creditcard_slider/raw/master/screenshots/yes_bank_card.png)
 
