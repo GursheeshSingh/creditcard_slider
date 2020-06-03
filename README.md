@@ -4,7 +4,7 @@ This project provides a credit card slider
 
 ## Screenshots
 
-![Demo 1](/screenshots/screenshot_1.gif)
+![Demo 1](https://github.com/GursheeshSingh/creditcard_slider/raw/master/screenshots/screenshot_1.gif)
 
 ## Creating Credit Cards
 
