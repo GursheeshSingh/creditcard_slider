@@ -6,3 +6,6 @@
 
 ## 1.0.0+2 - 27 May 2020
 * On card click listener added
+
+## 1.0.0+3 - 27 May 2020
+* Fixing README images

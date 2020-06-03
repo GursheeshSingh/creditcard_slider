@@ -18,7 +18,7 @@ This project provides a credit card slider
         cardHolderName: 'The boring developer',
     ),
 
-![Basic card](/screenshots/basic_card.png)
+![](https://github.com/GursheeshSingh/creditcard_slider/raw/master/screenshots/basic_card.png)
 
 * Creates a credit card with a solid background of red color
 * Credit card of type visa
@@ -55,7 +55,7 @@ Use field ***percentOfUpperCard*** of **CreditCardSlider**
         );
     }
 
-![Demo 1](/screenshots/screenshot_2.gif)
+![Demo 1](https://github.com/GursheeshSingh/creditcard_slider/raw/master/screenshots/screenshot_2.gif)
 
 ## Card click listener
 
@@ -94,7 +94,7 @@ Use field ***percentOfUpperCard*** of **CreditCardSlider**
         cardHolderName: 'The boring developer',
     )
 
-![Gradient card](/screenshots/gradient_card.png)
+![Gradient card](https://github.com/GursheeshSingh/creditcard_slider/raw/master/screenshots/gradient_card.png)
 
 ### Credit card with Image background
 
@@ -105,7 +105,7 @@ Use field ***percentOfUpperCard*** of **CreditCardSlider**
         cardHolderName: 'The boring developer',
     )
 
-![Image card](/screenshots/image_card.png)
+![Image card](https://github.com/GursheeshSingh/creditcard_slider/raw/master/screenshots/image_card.png)
 
 ### Adding Credit card number
 
@@ -118,7 +118,7 @@ Use field ***percentOfUpperCard*** of **CreditCardSlider**
         cardNumber: '1234 1234 1234 1234',
     )
 
-![Image card](/screenshots/credit_card_with_number.png)
+![Image card](https://github.com/GursheeshSingh/creditcard_slider/raw/master/screenshots/credit_card_with_number.png)
 
     CreditCard(
         cardBackground: SolidColorCardBackground(Colors.black.withOpacity(0.6)),
@@ -127,7 +127,7 @@ Use field ***percentOfUpperCard*** of **CreditCardSlider**
         cardNumber: '1234 **** **** ****',
     )
 
-![Image card](/screenshots/credit_card_with_hidden_numbers.png)
+![Image card](https://github.com/GursheeshSingh/creditcard_slider/raw/master/screenshots/credit_card_with_hidden_numbers.png)
 
 ### Adding a credit card company
 
