@@ -9,19 +9,25 @@ import 'credit_card_widget.dart';
 typedef void OnCardClicked(int index);
 
 class CreditCardSlider extends StatelessWidget {
-  final _pageController = PageController(
-    viewportFraction: 0.3,
-  );
+  PageController _pageController;
 
   final List<CreditCard> creditCards;
   final double percentOfUpperCard;
   final OnCardClicked onCardClicked;
+  final int initialPage;
 
   CreditCardSlider(
     this.creditCards, {
     this.onCardClicked,
+    this.initialPage = 0,
     this.percentOfUpperCard = 0.35,
   }) {
+    _pageController = PageController(
+      viewportFraction: 0.3,
+      initialPage: initialPage,
+    );
+    assert(initialPage >= 0);
+    assert(initialPage < creditCards.length);
     assert(percentOfUpperCard >= 0);
     assert(percentOfUpperCard <= pi / 2);
   }

@@ -3,17 +3,23 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 
 class PageSlider extends StatelessWidget {
-  final _pageController = PageController(
-    viewportFraction: 0.3,
-  );
+  PageController _pageController;
 
   final List<Widget> cards;
   final double percentOfUpperCard;
+  final int initialPage;
 
   PageSlider(
     this.cards, {
     this.percentOfUpperCard = 0.35,
+    this.initialPage = 0,
   }) {
+    _pageController = PageController(
+      viewportFraction: 0.3,
+      initialPage: initialPage,
+    );
+    assert(initialPage >= 0);
+    assert(initialPage < cards.length);
     assert(percentOfUpperCard >= 0);
     assert(percentOfUpperCard <= pi / 2);
   }
@@ -22,7 +28,6 @@ class PageSlider extends StatelessWidget {
   Widget build(BuildContext context) {
     return PageView.builder(
       controller: _pageController,
-      scrollDirection: Axis.vertical,
       itemCount: cards.length,
       itemBuilder: (context, index) => _builder(index),
     );
