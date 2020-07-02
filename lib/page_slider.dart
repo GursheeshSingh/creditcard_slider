@@ -8,9 +8,11 @@ class PageSlider extends StatelessWidget {
   final List<Widget> cards;
   final double percentOfUpperCard;
   final int initialPage;
+  final bool repeatCards;
 
   PageSlider(
     this.cards, {
+    this.repeatCards = false,
     this.percentOfUpperCard = 0.35,
     this.initialPage = 0,
   }) {
@@ -26,14 +28,22 @@ class PageSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (repeatCards) {
+      return PageView.builder(
+        controller: _pageController,
+        scrollDirection: Axis.vertical,
+        itemBuilder: (context, index) => _builder(index, cards.length),
+      );
+    }
     return PageView.builder(
       controller: _pageController,
       itemCount: cards.length,
-      itemBuilder: (context, index) => _builder(index),
+      scrollDirection: Axis.vertical,
+      itemBuilder: (context, index) => _builder(index, cards.length),
     );
   }
 
-  _builder(int index) {
+  _builder(int index, int length) {
     return AnimatedBuilder(
       animation: _pageController,
       builder: (context, child) {
@@ -69,7 +79,7 @@ class PageSlider extends StatelessWidget {
           ),
         );
       },
-      child: cards[index],
+      child: cards[index % length],
     );
   }
 }

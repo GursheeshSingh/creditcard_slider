@@ -15,10 +15,12 @@ class CreditCardSlider extends StatelessWidget {
   final double percentOfUpperCard;
   final OnCardClicked onCardClicked;
   final int initialPage;
+  final bool repeatCards;
 
   CreditCardSlider(
     this.creditCards, {
     this.onCardClicked,
+    this.repeatCards = false,
     this.initialPage = 0,
     this.percentOfUpperCard = 0.35,
   }) {
@@ -34,15 +36,22 @@ class CreditCardSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (repeatCards) {
+      return PageView.builder(
+        controller: _pageController,
+        scrollDirection: Axis.vertical,
+        itemBuilder: (context, index) => _builder(index, creditCards.length),
+      );
+    }
     return PageView.builder(
       controller: _pageController,
       scrollDirection: Axis.vertical,
       itemCount: creditCards.length,
-      itemBuilder: (context, index) => _builder(index),
+      itemBuilder: (context, index) => _builder(index, creditCards.length),
     );
   }
 
-  _builder(int index) {
+  _builder(int index, int length) {
     return AnimatedBuilder(
       animation: _pageController,
       builder: (context, child) {
@@ -81,10 +90,10 @@ class CreditCardSlider extends StatelessWidget {
       child: GestureDetector(
         onTap: () {
           if (onCardClicked != null) {
-            onCardClicked(index);
+            onCardClicked(index % length);
           }
         },
-        child: creditCards[index],
+        child: creditCards[index % length],
       ),
     );
   }
