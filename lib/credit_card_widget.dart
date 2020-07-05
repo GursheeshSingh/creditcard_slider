@@ -43,12 +43,32 @@ class CreditCard extends StatelessWidget {
       height: MediaQuery.of(context).size.height*0.25,
       decoration: _buildBackground(),
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-      child: Stack(
+      child: customWidget!=null?Stack(
       
         children: <Widget>[
         customWidget,
           showChip ? _buildChip(context) : SizedBox.shrink(),
         
+        ],
+      ): Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          company != null
+              ? Align(
+                  alignment: Alignment.centerLeft,
+                  child: company.widget,
+                )
+              : SizedBox.shrink(),
+          showChip ? _buildChip(context) : SizedBox.shrink(),
+          Column(
+            children: <Widget>[
+              _buildCardNumber(),
+              SizedBox(height: 4),
+              _buildValidity(),
+              SizedBox(height: 4),
+              _buildNameAndCardNetworkType(),
+            ],
+          ),
         ],
       ),
     );

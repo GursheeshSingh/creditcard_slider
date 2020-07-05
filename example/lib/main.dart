@@ -71,18 +71,18 @@ class _HomePageState extends State<HomePage> {
       //     validThruYear: 2021,
       //   ),
       // ),
-      // CreditCard(
-      //   cardBackground:
-      //       ImageCardBackground(AssetImage('images/background_sample.jpg')),
-      //   cardNetworkType: CardNetworkType.mastercard,
-      //   // cardHolderName: 'John Doe',
-      //   cardNumber: Text('1234 1234 1234 1234'),
-      //   company: CardCompany.virgin,
-      //   validity: Validity(
-      //     validThruMonth: 1,
-      //     validThruYear: 20,
-      //   ),
-      // ),
+      CreditCard(
+        cardBackground:
+            ImageCardBackground(AssetImage('images/background_sample.jpg')),
+        cardNetworkType: CardNetworkType.mastercard,
+        // cardHolderName: 'John Doe',
+        cardNumber: Text('1234 1234 1234 1234'),
+        company: CardCompany.virgin,
+        validity: Validity(
+          validThruMonth: 1,
+          validThruYear: 20,
+        ),
+      ),
       CreditCard(
            cardBackground: GradientCardBackground(LinearGradient(
           begin: Alignment.centerLeft,
