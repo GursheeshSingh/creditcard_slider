@@ -84,37 +84,43 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       CreditCard(
-           cardBackground: GradientCardBackground(LinearGradient(
+        cardBackground: GradientCardBackground(LinearGradient(
           begin: Alignment.centerLeft,
           end: Alignment.centerRight,
           colors: [kBlue, kPurple],
           stops: [0.3, 0.95],
         )),
-     //   cardNetworkType: CardNetworkType.rupay,
-        customWidget:Text("mohanand", style: TextStyle(
-                      color: Colors.red,
-                      fontSize: 8,
-                    ),),
+        //   cardNetworkType: CardNetworkType.rupay,
+        customWidget: Text(
+          "mohanand",
+          style: TextStyle(
+            color: Colors.red,
+            fontSize: 8,
+          ),
+        ),
         // cardHolderName: 'THE BORING DEVELOPER',
-       // cardNumber: Text('1234 1234 1234 1234'),
-       // company: CardCompany.sbi,
+        // cardNumber: Text('1234 1234 1234 1234'),
+        // company: CardCompany.sbi,
       ),
-       CreditCard(
-           cardBackground: GradientCardBackground(LinearGradient(
+      CreditCard(
+        cardBackground: GradientCardBackground(LinearGradient(
           begin: Alignment.centerLeft,
           end: Alignment.centerRight,
           colors: [Colors.green, kPurple],
           stops: [0.3, 0.95],
         )),
-        showChip:false,
-     //   cardNetworkType: CardNetworkType.rupay,
-        customWidget:Text("mohanand", style: TextStyle(
-                      color: Colors.red,
-                      fontSize: 8,
-                    ),),
+        showChip: false,
+        //   cardNetworkType: CardNetworkType.rupay,
+        customWidget: Text(
+          "mohanand",
+          style: TextStyle(
+            color: Colors.red,
+            fontSize: 8,
+          ),
+        ),
         // cardHolderName: 'THE BORING DEVELOPER',
-       // cardNumber: Text('1234 1234 1234 1234'),
-       // company: CardCompany.sbi,
+        // cardNumber: Text('1234 1234 1234 1234'),
+        // company: CardCompany.sbi,
       ),
     ];
   }
@@ -123,12 +129,20 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: CreditCardSlider(
-          _creditCards,
-          repeatCards: true,
-          onCardClicked: (index) {
-            print('Clicked at index: $index');
-          },
+        child: Column(
+          children: <Widget>[
+            Container(
+              height: MediaQuery.of(context).size.height*0.9,
+              child: CreditCardSlider(
+                _creditCards,
+                repeatCards: RepeatCards.BOTH_SIDES,
+                onCardClicked: (index) {
+                  print('Clicked at index: $index');
+                },
+              ),
+            ),
+           
+          ],
         ),
       ),
     );

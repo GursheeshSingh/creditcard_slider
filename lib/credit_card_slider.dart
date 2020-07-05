@@ -3,10 +3,12 @@ library credit_card_slider;
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:infinity_page_view/infinity_page_view.dart';
 
 import 'credit_card_widget.dart';
 
 typedef void OnCardClicked(int index);
+enum RepeatCards { DOWN, BOTH_SIDES, NONE }
 
 class CreditCardSlider extends StatelessWidget {
   PageController _pageController;
@@ -14,32 +16,42 @@ class CreditCardSlider extends StatelessWidget {
   final List<CreditCard> creditCards;
   final double percentOfUpperCard;
   final OnCardClicked onCardClicked;
-  final int initialPage;
-  final bool repeatCards;
+   int initialPage;
+   final RepeatCards repeatCards;
 
   CreditCardSlider(
     this.creditCards, {
     this.onCardClicked,
-    this.repeatCards = false,
+    this.repeatCards =  RepeatCards.NONE,
     this.initialPage = 0,
     this.percentOfUpperCard = 0.35,
   }) {
+
+    
+ assert(initialPage >= 0);
+    assert(initialPage < creditCards.length);
+    assert(percentOfUpperCard >= 0);
+    assert(percentOfUpperCard <= pi / 2);
+     if (repeatCards == RepeatCards.BOTH_SIDES) {
+      initialPage = (creditCards.length * 1000000) + initialPage;
+    }
     _pageController = PageController(
       viewportFraction: 0.3,
       initialPage: initialPage,
     );
-    assert(initialPage >= 0);
-    assert(initialPage < creditCards.length);
-    assert(percentOfUpperCard >= 0);
-    assert(percentOfUpperCard <= pi / 2);
+    
   }
 
   @override
   Widget build(BuildContext context) {
-    if (repeatCards) {
+    if (repeatCards == RepeatCards.DOWN ||
+        repeatCards == RepeatCards.BOTH_SIDES) {
       return PageView.builder(
         controller: _pageController,
         scrollDirection: Axis.vertical,
+         
+        
+        //  loop:true, 
         itemBuilder: (context, index) => _builder(index, creditCards.length),
       );
     }
@@ -50,8 +62,7 @@ class CreditCardSlider extends StatelessWidget {
       itemBuilder: (context, index) => _builder(index, creditCards.length),
     );
   }
-
-  _builder(int index, int length) {
+ _builder(int index, int length) {
     return AnimatedBuilder(
       animation: _pageController,
       builder: (context, child) {

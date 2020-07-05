@@ -40,7 +40,7 @@ class CreditCard extends StatelessWidget {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 5),
       width:MediaQuery.of(context).size.height<900 ? MediaQuery.of(context).size.width*0.9:MediaQuery.of(context).size.width*0.70,
-      height: MediaQuery.of(context).size.height*0.25,
+      height: MediaQuery.of(context).size.height<900 ? MediaQuery.of(context).size.height*0.25:MediaQuery.of(context).size.height*0.3,
       decoration: _buildBackground(),
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
       child: customWidget!=null?Stack(
