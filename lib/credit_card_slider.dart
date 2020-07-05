@@ -8,35 +8,43 @@ import 'credit_card_widget.dart';
 
 typedef void OnCardClicked(int index);
 
+enum RepeatCards { DOWN, BOTH_SIDES, NONE }
+
 class CreditCardSlider extends StatelessWidget {
   PageController _pageController;
 
   final List<CreditCard> creditCards;
   final double percentOfUpperCard;
   final OnCardClicked onCardClicked;
-  final int initialPage;
-  final bool repeatCards;
+  final RepeatCards repeatCards;
+  int initialPage;
 
   CreditCardSlider(
     this.creditCards, {
     this.onCardClicked,
-    this.repeatCards = false,
+    this.repeatCards = RepeatCards.NONE,
     this.initialPage = 0,
     this.percentOfUpperCard = 0.35,
   }) {
+    if (repeatCards == RepeatCards.BOTH_SIDES) {
+      initialPage = (creditCards.length * 1000000) + initialPage;
+    }
     _pageController = PageController(
       viewportFraction: 0.3,
       initialPage: initialPage,
     );
     assert(initialPage >= 0);
-    assert(initialPage < creditCards.length);
+    if (repeatCards != RepeatCards.BOTH_SIDES) {
+      assert(initialPage < creditCards.length);
+    }
     assert(percentOfUpperCard >= 0);
     assert(percentOfUpperCard <= pi / 2);
   }
 
   @override
   Widget build(BuildContext context) {
-    if (repeatCards) {
+    if (repeatCards == RepeatCards.DOWN ||
+        repeatCards == RepeatCards.BOTH_SIDES) {
       return PageView.builder(
         controller: _pageController,
         scrollDirection: Axis.vertical,
