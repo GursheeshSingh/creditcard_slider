@@ -26,6 +26,11 @@ class CreditCardSlider extends StatelessWidget {
     this.initialPage = 0,
     this.percentOfUpperCard = 0.35,
   }) {
+    assert(initialPage >= 0);
+    assert(initialPage < creditCards.length);
+    assert(percentOfUpperCard >= 0);
+    assert(percentOfUpperCard <= pi / 2);
+
     if (repeatCards == RepeatCards.BOTH_SIDES) {
       initialPage = (creditCards.length * 1000000) + initialPage;
     }
@@ -33,12 +38,6 @@ class CreditCardSlider extends StatelessWidget {
       viewportFraction: 0.3,
       initialPage: initialPage,
     );
-    assert(initialPage >= 0);
-    if (repeatCards != RepeatCards.BOTH_SIDES) {
-      assert(initialPage < creditCards.length);
-    }
-    assert(percentOfUpperCard >= 0);
-    assert(percentOfUpperCard <= pi / 2);
   }
 
   @override
