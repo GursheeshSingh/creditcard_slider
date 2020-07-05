@@ -9,9 +9,10 @@ import 'validity.dart';
 class CreditCard extends StatelessWidget {
   final CardBackground cardBackground;
   final CardNetworkType cardNetworkType;
+  final Widget customWidget;
   final CardCompany company;
-  final String cardHolderName;
-  final String cardNumber;
+  final Widget cardHolderName;
+  final Widget cardNumber;
   final double roundedCornerRadius;
   final Validity validity;
   final Color numberColor;
@@ -22,6 +23,7 @@ class CreditCard extends StatelessWidget {
   const CreditCard({
     @required this.cardBackground,
     this.cardNetworkType,
+    this.customWidget,
     this.cardNumber,
     this.cardHolderName,
     this.company,
@@ -37,29 +39,16 @@ class CreditCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 5),
-      width: 300,
-      height: 200,
+      width:MediaQuery.of(context).size.height<900 ? MediaQuery.of(context).size.width*0.9:MediaQuery.of(context).size.width*0.70,
+      height: MediaQuery.of(context).size.height*0.25,
       decoration: _buildBackground(),
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Stack(
+      
         children: <Widget>[
-          company != null
-              ? Align(
-                  alignment: Alignment.centerLeft,
-                  child: company.widget,
-                )
-              : SizedBox.shrink(),
-          showChip ? _buildChip() : SizedBox.shrink(),
-          Column(
-            children: <Widget>[
-              _buildCardNumber(),
-              SizedBox(height: 4),
-              _buildValidity(),
-              SizedBox(height: 4),
-              _buildNameAndCardNetworkType(),
-            ],
-          ),
+        customWidget,
+          showChip ? _buildChip(context) : SizedBox.shrink(),
+        
         ],
       ),
     );
@@ -92,33 +81,25 @@ class CreditCard extends StatelessWidget {
     }
   }
 
-  _buildChip() {
+  _buildChip(context) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 4, horizontal: 4),
       alignment: Alignment.centerLeft,
       child: Image.asset(
         'images/chip.png',
-        height: 25,
+        height: MediaQuery.of(context).size.height*0.04,
         package: 'credit_card_slider',
       ),
     );
   }
 
   _buildCardNumber() {
-    if (cardNumber == null || cardNumber.trim() == "") {
+    if (cardNumber == null ) {
       return SizedBox.shrink();
     }
     return Align(
       alignment: Alignment.centerLeft,
-      child: Text(
-        cardNumber,
-        style: TextStyle(
-          fontFamily: 'creditcard',
-          package: 'credit_card_slider',
-          color: numberColor,
-          fontSize: 11,
-        ),
-      ),
+      child: cardNumber,
     );
   }
 
@@ -187,16 +168,9 @@ class CreditCard extends StatelessWidget {
         cardHolderName != null
             ? Expanded(
                 flex: 3,
-                child: AutoSizeText(
-                  cardHolderName.toUpperCase(),
-                  maxLines: 1,
-                  minFontSize: 8,
-                  style: TextStyle(
-                    fontFamily: 'creditcard',
-                    color: cardHolderNameColor,
-                    package: 'credit_card_slider',
-                  ),
-                ),
+                child:
+                  cardHolderName,
+               
               )
             : SizedBox.shrink(),
         SizedBox(width: 16),
