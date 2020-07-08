@@ -3,14 +3,14 @@ library credit_card_slider;
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:infinity_page_view/infinity_page_view.dart';
+import 'package:after_layout/after_layout.dart';
 
 import 'credit_card_widget.dart';
 
 typedef void OnCardClicked(int index);
 enum RepeatCards { DOWN, BOTH_SIDES, NONE }
 
-class CreditCardSlider extends StatelessWidget {
+class CreditCardSlider extends StatefulWidget {
   PageController _pageController;
 
   final List<CreditCard> creditCards;
@@ -43,36 +43,52 @@ class CreditCardSlider extends StatelessWidget {
   }
 
   @override
+  _CreditCardSliderState createState() => _CreditCardSliderState();
+}
+
+class _CreditCardSliderState extends State<CreditCardSlider> with AfterLayoutMixin<CreditCardSlider> {
+  @override
+  void afterFirstLayout(BuildContext context) {
+    animateTo();
+  }
+
+  void animateTo(){
+    widget._pageController.jumpToPage((widget.initialPage/2).floor());
+
+  }
+
+  @override
   Widget build(BuildContext context) {
-    if (repeatCards == RepeatCards.DOWN ||
-        repeatCards == RepeatCards.BOTH_SIDES) {
+    if (widget.repeatCards == RepeatCards.DOWN ||
+        widget.repeatCards == RepeatCards.BOTH_SIDES) {
       return PageView.builder(
-        controller: _pageController,
+        controller: widget._pageController,
         scrollDirection: Axis.vertical,
          
         
         //  loop:true, 
-        itemBuilder: (context, index) => _builder(index, creditCards.length),
+        itemBuilder: (context, index) => _builder(index, widget.creditCards.length),
       );
     }
     return PageView.builder(
-      controller: _pageController,
+      controller: widget._pageController,
       scrollDirection: Axis.vertical,
-      itemCount: creditCards.length,
-      itemBuilder: (context, index) => _builder(index, creditCards.length),
+      itemCount: widget.creditCards.length,
+      itemBuilder: (context, index) => _builder(index, widget.creditCards.length),
     );
   }
+
  _builder(int index, int length) {
     return AnimatedBuilder(
-      animation: _pageController,
+      animation: widget._pageController,
       builder: (context, child) {
         double value = 1.0;
 
-        if (_pageController.position.haveDimensions) {
-          value = _pageController.page - index;
+        if (widget._pageController.position.haveDimensions) {
+          value = widget._pageController.page - index;
 
           if (value >= 0) {
-            double _lowerLimit = percentOfUpperCard;
+            double _lowerLimit = widget.percentOfUpperCard;
             double _upperLimit = pi / 2;
 
             value = (_upperLimit - (value.abs() * (_upperLimit - _lowerLimit)))
@@ -100,11 +116,11 @@ class CreditCardSlider extends StatelessWidget {
       },
       child: GestureDetector(
         onTap: () {
-          if (onCardClicked != null) {
-            onCardClicked(index % length);
+          if (widget.onCardClicked != null) {
+            widget.onCardClicked(index % length);
           }
         },
-        child: creditCards[index % length],
+        child: widget.creditCards[index % length],
       ),
     );
   }

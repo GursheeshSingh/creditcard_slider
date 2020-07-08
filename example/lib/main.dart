@@ -55,22 +55,22 @@ class _HomePageState extends State<HomePage> {
       //     validThruYear: 21,
       //   ),
       // ),
-      // CreditCard(
-      //   cardBackground: GradientCardBackground(LinearGradient(
-      //     begin: Alignment.centerLeft,
-      //     end: Alignment.centerRight,
-      //     colors: [kBlue, kPurple],
-      //     stops: [0.3, 0.95],
-      //   )),
-      //   cardNetworkType: CardNetworkType.mastercard,
-      //   // cardHolderName: 'Very Very very boring devloper',
-      //   cardNumber: Text('1234 1234 1234 1234'),
-      //   company: CardCompany.sbiCard,
-      //   validity: Validity(
-      //     validThruMonth: 2,
-      //     validThruYear: 2021,
-      //   ),
-      // ),
+      CreditCard(
+        cardBackground: GradientCardBackground(LinearGradient(
+          begin: Alignment.centerLeft,
+          end: Alignment.centerRight,
+          colors: [kBlue, kPurple],
+          stops: [0.3, 0.95],
+        )),
+        cardNetworkType: CardNetworkType.mastercard,
+        // cardHolderName: 'Very Very very boring devloper',
+        cardNumber: Text('1234 1234 1234 1234'),
+        company: CardCompany.sbiCard,
+        validity: Validity(
+          validThruMonth: 2,
+          validThruYear: 2021,
+        ),
+      ),
       CreditCard(
         cardBackground:
             ImageCardBackground(AssetImage('images/background_sample.jpg')),
@@ -83,44 +83,41 @@ class _HomePageState extends State<HomePage> {
           validThruYear: 20,
         ),
       ),
-      CreditCard(
-        cardBackground: GradientCardBackground(LinearGradient(
-          begin: Alignment.centerLeft,
-          end: Alignment.centerRight,
-          colors: [kBlue, kPurple],
-          stops: [0.3, 0.95],
-        )),
-        //   cardNetworkType: CardNetworkType.rupay,
-        customWidget: Text(
-          "mohanand",
-          style: TextStyle(
-            color: Colors.red,
-            fontSize: 8,
-          ),
+       CreditCard(
+        cardBackground:
+            ImageCardBackground(AssetImage('images/background_sample.jpg')),
+        cardNetworkType: CardNetworkType.mastercard,
+        // cardHolderName: 'John Doe',
+        cardNumber: Text('1234 1234 1234 1234'),
+        company: CardCompany.virgin,
+        validity: Validity(
+          validThruMonth: 1,
+          validThruYear: 20,
         ),
-        // cardHolderName: 'THE BORING DEVELOPER',
-        // cardNumber: Text('1234 1234 1234 1234'),
-        // company: CardCompany.sbi,
       ),
-      CreditCard(
-        cardBackground: GradientCardBackground(LinearGradient(
-          begin: Alignment.centerLeft,
-          end: Alignment.centerRight,
-          colors: [Colors.green, kPurple],
-          stops: [0.3, 0.95],
-        )),
-        showChip: false,
-        //   cardNetworkType: CardNetworkType.rupay,
-        customWidget: Text(
-          "mohanand",
-          style: TextStyle(
-            color: Colors.red,
-            fontSize: 8,
-          ),
+       CreditCard(
+        cardBackground:
+            ImageCardBackground(AssetImage('images/background_sample.jpg')),
+        cardNetworkType: CardNetworkType.mastercard,
+        // cardHolderName: 'John Doe',
+        cardNumber: Text('1234 1234 1234 1234'),
+        company: CardCompany.virgin,
+        validity: Validity(
+          validThruMonth: 1,
+          validThruYear: 20,
         ),
-        // cardHolderName: 'THE BORING DEVELOPER',
-        // cardNumber: Text('1234 1234 1234 1234'),
-        // company: CardCompany.sbi,
+      ),
+       CreditCard(
+        cardBackground:
+            ImageCardBackground(AssetImage('images/background_sample.jpg')),
+        cardNetworkType: CardNetworkType.mastercard,
+        // cardHolderName: 'John Doe',
+        cardNumber: Text('1234 1234 1234 1234'),
+        company: CardCompany.virgin,
+        validity: Validity(
+          validThruMonth: 1,
+          validThruYear: 20,
+        ),
       ),
     ];
   }

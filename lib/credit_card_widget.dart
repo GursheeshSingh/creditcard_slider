@@ -39,38 +39,38 @@ class CreditCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 5),
-      width:MediaQuery.of(context).size.height<900 ? MediaQuery.of(context).size.width*0.9:MediaQuery.of(context).size.width*0.70,
-      height: MediaQuery.of(context).size.height<900 ? MediaQuery.of(context).size.height*0.25:MediaQuery.of(context).size.height*0.3,
+      width: MediaQuery.of(context).size.height < 900
+          ? MediaQuery.of(context).size.width * 0.9
+          : MediaQuery.of(context).size.width * 0.70,
       decoration: _buildBackground(),
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-      child: customWidget!=null?Stack(
-      
-        children: <Widget>[
-        customWidget,
-          showChip ? _buildChip(context) : SizedBox.shrink(),
-        
-        ],
-      ): Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          company != null
-              ? Align(
-                  alignment: Alignment.centerLeft,
-                  child: company.widget,
-                )
-              : SizedBox.shrink(),
-          showChip ? _buildChip(context) : SizedBox.shrink(),
-          Column(
-            children: <Widget>[
-              _buildCardNumber(),
-              SizedBox(height: 4),
-              _buildValidity(),
-              SizedBox(height: 4),
-              _buildNameAndCardNetworkType(),
-            ],
-          ),
-        ],
-      ),
+      child: customWidget != null
+          ? Stack(
+              children: <Widget>[
+                customWidget,
+              ],
+            )
+          : Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                company != null
+                    ? Align(
+                        alignment: Alignment.centerLeft,
+                        child: company.widget,
+                      )
+                    : SizedBox.shrink(),
+                showChip ? _buildChip(context) : SizedBox.shrink(),
+                Column(
+                  children: <Widget>[
+                    _buildCardNumber(),
+                    SizedBox(height: 4),
+                    _buildValidity(),
+                    SizedBox(height: 4),
+                    _buildNameAndCardNetworkType(),
+                  ],
+                ),
+              ],
+            ),
     );
   }
 
@@ -101,20 +101,22 @@ class CreditCard extends StatelessWidget {
     }
   }
 
+  
+
   _buildChip(context) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 4, horizontal: 4),
       alignment: Alignment.centerLeft,
       child: Image.asset(
         'images/chip.png',
-        height: MediaQuery.of(context).size.height*0.04,
+        height: MediaQuery.of(context).size.height * 0.04,
         package: 'credit_card_slider',
       ),
     );
   }
 
   _buildCardNumber() {
-    if (cardNumber == null ) {
+    if (cardNumber == null) {
       return SizedBox.shrink();
     }
     return Align(
@@ -188,9 +190,7 @@ class CreditCard extends StatelessWidget {
         cardHolderName != null
             ? Expanded(
                 flex: 3,
-                child:
-                  cardHolderName,
-               
+                child: cardHolderName,
               )
             : SizedBox.shrink(),
         SizedBox(width: 16),

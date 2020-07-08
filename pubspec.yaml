@@ -10,7 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   auto_size_text: ^2.1.0
-  infinity_page_view: ^1.0.0
+  after_layout: ^1.0.7+2
 
 
 dev_dependencies:
