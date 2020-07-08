@@ -64,6 +64,9 @@ class CreditCardSlider extends StatelessWidget {
       builder: (context, child) {
         double value = 1.0;
 
+        int mIndex = index % length;
+        int mInitialPage = initialPage % length;
+
         if (_pageController.position.haveDimensions) {
           value = _pageController.page - index;
 
@@ -77,10 +80,18 @@ class CreditCardSlider extends StatelessWidget {
             value *= -1;
           }
         } else {
-          if (index == 0) {
+          if (mIndex == mInitialPage) {
+            //This will show that card fully
             value = 0;
-          } else if (index == 1) {
+          } else if (mInitialPage == 0 || mIndex == mInitialPage - 1) {
+            //This will show the upper card with the percentage specified
+            value = -(pi / 2 - percentOfUpperCard);
+          } else if (mIndex == mInitialPage + 1) {
+            //This will be fixed
             value = -1;
+          } else {
+            //This will hide the other cards
+            value = pi / 2;
           }
         }
 
