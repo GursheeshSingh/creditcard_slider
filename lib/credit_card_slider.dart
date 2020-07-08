@@ -107,9 +107,7 @@ class CreditCardSlider extends StatelessWidget {
       },
       child: GestureDetector(
         onTap: () {
-          if (onCardClicked != null) {
-            onCardClicked(index % length);
-          }
+          onCardClicked?.call(index % length);
         },
         child: creditCards[index % length],
       ),
