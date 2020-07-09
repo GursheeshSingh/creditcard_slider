@@ -13,7 +13,65 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePage(),
+      home: MainPage(),
+    );
+  }
+}
+
+class MainPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        padding: EdgeInsets.symmetric(horizontal: 24),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            RaisedButton(
+              color: kBlue,
+              child: Text('Simple card slider',
+                  style: TextStyle(color: Colors.white)),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SimpleCreditCardSlider(),
+                  ),
+                );
+              },
+            ),
+            RaisedButton(
+              color: kBlue,
+              child: Text('Credit card slider with repeating down cards',
+                  style: TextStyle(color: Colors.white)),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CreditCardSliderRepeatDown(),
+                  ),
+                );
+              },
+            ),
+            RaisedButton(
+              color: kBlue,
+              padding: EdgeInsets.all(8),
+              child: Text(
+                  'Credit card slider with repeating cards in both direction',
+                  style: TextStyle(color: Colors.white)),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CreditCardSliderRepeatBothSides(),
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -23,83 +81,77 @@ Color kRed = Color(0xFFFA3754);
 Color kBlue = Color(0xFF4AA3F2);
 Color kPurple = Color(0xFFAF92FB);
 
-class _HomePageState extends State<HomePage> {
-  List<CreditCard> _creditCards = [];
+var _creditCards = [
+  CreditCard(
+    cardBackground: SolidColorCardBackground(Colors.black.withOpacity(0.6)),
+    cardNetworkType: CardNetworkType.visaBasic,
+    cardHolderName: 'The boring developer',
+    cardNumber: '1234 1234 1234 1234',
+    company: CardCompany.yesBank,
+    validity: Validity(
+      validThruMonth: 1,
+      validThruYear: 21,
+      validFromMonth: 1,
+      validFromYear: 16,
+    ),
+  ),
+  CreditCard(
+    cardBackground: SolidColorCardBackground(kRed.withOpacity(0.4)),
+    cardNetworkType: CardNetworkType.mastercard,
+    cardHolderName: 'Gursheesh Singh',
+    cardNumber: '2434 2434 **** ****',
+    company: CardCompany.kotak,
+    validity: Validity(
+      validThruMonth: 1,
+      validThruYear: 21,
+    ),
+  ),
+  CreditCard(
+    cardBackground: GradientCardBackground(LinearGradient(
+      begin: Alignment.centerLeft,
+      end: Alignment.centerRight,
+      colors: [kBlue, kPurple],
+      stops: [0.3, 0.95],
+    )),
+    cardNetworkType: CardNetworkType.mastercard,
+    cardHolderName: 'Very Very very boring devloper',
+    cardNumber: '4567',
+    company: CardCompany.sbiCard,
+    validity: Validity(
+      validThruMonth: 2,
+      validThruYear: 2021,
+    ),
+  ),
+  CreditCard(
+    cardBackground:
+        ImageCardBackground(AssetImage('images/background_sample.jpg')),
+    cardNetworkType: CardNetworkType.mastercard,
+    cardHolderName: 'John Doe',
+    cardNumber: '2434 2434 **** ****',
+    company: CardCompany.virgin,
+    validity: Validity(
+      validThruMonth: 1,
+      validThruYear: 20,
+    ),
+  ),
+  CreditCard(
+    cardNetworkType: CardNetworkType.rupay,
+    cardHolderName: 'THE BORING DEVELOPER',
+    cardNumber: '2434 2434 **** ****',
+    company: CardCompany.sbi,
+  ),
+];
 
-  @override
-  void initState() {
-    super.initState();
+//Opens a credit card slider with initial card as 2
 
-    _creditCards = [
-      CreditCard(
-        cardBackground: SolidColorCardBackground(Colors.black.withOpacity(0.6)),
-        cardNetworkType: CardNetworkType.visaBasic,
-        cardHolderName: 'The boring developer',
-        cardNumber: '1234 1234 1234 1234',
-        company: CardCompany.yesBank,
-        validity: Validity(
-          validThruMonth: 1,
-          validThruYear: 21,
-          validFromMonth: 1,
-          validFromYear: 16,
-        ),
-      ),
-      CreditCard(
-        cardBackground: SolidColorCardBackground(kRed.withOpacity(0.4)),
-        cardNetworkType: CardNetworkType.mastercard,
-        cardHolderName: 'Gursheesh Singh',
-        cardNumber: '2434 2434 **** ****',
-        company: CardCompany.kotak,
-        validity: Validity(
-          validThruMonth: 1,
-          validThruYear: 21,
-        ),
-      ),
-      CreditCard(
-        cardBackground: GradientCardBackground(LinearGradient(
-          begin: Alignment.centerLeft,
-          end: Alignment.centerRight,
-          colors: [kBlue, kPurple],
-          stops: [0.3, 0.95],
-        )),
-        cardNetworkType: CardNetworkType.mastercard,
-        cardHolderName: 'Very Very very boring devloper',
-        cardNumber: '4567',
-        company: CardCompany.sbiCard,
-        validity: Validity(
-          validThruMonth: 2,
-          validThruYear: 2021,
-        ),
-      ),
-      CreditCard(
-        cardBackground:
-            ImageCardBackground(AssetImage('images/background_sample.jpg')),
-        cardNetworkType: CardNetworkType.mastercard,
-        cardHolderName: 'John Doe',
-        cardNumber: '2434 2434 **** ****',
-        company: CardCompany.virgin,
-        validity: Validity(
-          validThruMonth: 1,
-          validThruYear: 20,
-        ),
-      ),
-      CreditCard(
-        cardNetworkType: CardNetworkType.rupay,
-        cardHolderName: 'THE BORING DEVELOPER',
-        cardNumber: '2434 2434 **** ****',
-        company: CardCompany.sbi,
-      ),
-    ];
-  }
-
+class SimpleCreditCardSlider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: CreditCardSlider(
           _creditCards,
-          initialPage: 3,
-          repeatCards: RepeatCards.BOTH_SIDES,
+          initialCard: 2,
           onCardClicked: (index) {
             print('Clicked at index: $index');
           },
@@ -109,7 +161,30 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class HomePage extends StatefulWidget {
+class CreditCardSliderRepeatDown extends StatelessWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: CreditCardSlider(
+          _creditCards,
+          repeatCards: RepeatCards.down,
+        ),
+      ),
+    );
+  }
+}
+
+class CreditCardSliderRepeatBothSides extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: CreditCardSlider(
+          _creditCards,
+          repeatCards: RepeatCards.bothSides,
+        ),
+      ),
+    );
+  }
 }

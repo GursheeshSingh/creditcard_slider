@@ -55,6 +55,63 @@ Use field ***percentOfUpperCard*** of **CreditCardSlider**
 
 ![Demo 1](https://github.com/GursheeshSingh/creditcard_slider/raw/master/screenshots/screenshot_2.gif)
 
+## Specify initial card
+**NOTE:** Added in 1.0.1
+
+You can also specify initial card index to appear in slider
+
+initialCard is 0 index based
+
+      @override
+      Widget build(BuildContext context) {
+        return Scaffold(
+          body: Center(
+            child: CreditCardSlider(
+              _creditCards,
+              initialCard: 2,
+            ),
+          ),
+        );
+      }
+
+## Repeat cards
+**NOTE:** Added in 1.0.1
+
+You can also repeat cards in down or both sides
+
+### Repeat in down direction only
+
+      @override
+      Widget build(BuildContext context) {
+        return Scaffold(
+          body: Center(
+            child: CreditCardSlider(
+              _creditCards,
+              repeatCards: RepeatCards.down,
+            ),
+          ),
+        );
+      }
+
+![Demo 1](https://github.com/GursheeshSingh/creditcard_slider/raw/master/screenshots/screenshot_3.gif)
+
+### Repeat in both direction
+
+      @override
+      Widget build(BuildContext context) {
+        return Scaffold(
+          body: Center(
+            child: CreditCardSlider(
+              _creditCards,
+              repeatCards: RepeatCards.bothSides,
+            ),
+          ),
+        );
+      }
+
+![Demo 1](https://github.com/GursheeshSingh/creditcard_slider/raw/master/screenshots/screenshot_4.gif)
+
+
 ## Card click listener
 
     @override

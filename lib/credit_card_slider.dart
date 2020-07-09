@@ -8,8 +8,12 @@ import 'credit_card_widget.dart';
 
 typedef void OnCardClicked(int index);
 
-enum RepeatCards { DOWN, BOTH_SIDES, NONE }
+enum RepeatCards { down, bothSides, none }
 
+///[initialCard] is 0 based index
+///[repeatCards] can have 3 values - [RepeatCards.none], [RepeatCards.down] or [RepeatCards.bothSides]
+///Use [RepeatCards.bothSides] for repeating cards on both sides
+///Use [RepeatCards.down] for repeating cards only down
 class CreditCardSlider extends StatelessWidget {
   PageController _pageController;
 
@@ -17,33 +21,33 @@ class CreditCardSlider extends StatelessWidget {
   final double percentOfUpperCard;
   final OnCardClicked onCardClicked;
   final RepeatCards repeatCards;
-  int initialPage;
+  int initialCard;
 
   CreditCardSlider(
     this.creditCards, {
     this.onCardClicked,
-    this.repeatCards = RepeatCards.NONE,
-    this.initialPage = 0,
+    this.repeatCards = RepeatCards.none,
+    this.initialCard = 0,
     this.percentOfUpperCard = 0.35,
   }) {
-    assert(initialPage >= 0);
-    assert(initialPage < creditCards.length);
+    assert(initialCard >= 0);
+    assert(initialCard < creditCards.length);
     assert(percentOfUpperCard >= 0);
     assert(percentOfUpperCard <= pi / 2);
 
-    if (repeatCards == RepeatCards.BOTH_SIDES) {
-      initialPage = (creditCards.length * 1000000) + initialPage;
+    if (repeatCards == RepeatCards.bothSides) {
+      initialCard = (creditCards.length * 1000000) + initialCard;
     }
     _pageController = PageController(
       viewportFraction: 0.3,
-      initialPage: initialPage,
+      initialPage: initialCard,
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    if (repeatCards == RepeatCards.DOWN ||
-        repeatCards == RepeatCards.BOTH_SIDES) {
+    if (repeatCards == RepeatCards.down ||
+        repeatCards == RepeatCards.bothSides) {
       return PageView.builder(
         controller: _pageController,
         scrollDirection: Axis.vertical,
@@ -65,7 +69,7 @@ class CreditCardSlider extends StatelessWidget {
         double value = 1.0;
 
         int mIndex = index % length;
-        int mInitialPage = initialPage % length;
+        int mInitialPage = initialCard % length;
 
         if (_pageController.position.haveDimensions) {
           value = _pageController.page - index;

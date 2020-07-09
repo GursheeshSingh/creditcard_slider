@@ -12,3 +12,8 @@
 
 ## 1.0.0+4 - 3 June 2020
 * Fixing README images
+
+## 1.0.1 - 10 July 2020
+* Repeat cards added
+* Specify initial card added
+* Fixed display when loading cards for first time
