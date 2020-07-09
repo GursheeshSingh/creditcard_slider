@@ -2,6 +2,12 @@
 
 This project provides a credit card slider
 
+Author: theboringdeveloper
+
+[Medium](https://medium.com/@theboringdeveloper)
+
+[Instagram](https://www.instagram.com/theboringdeveloper/)
+
 ## Screenshots
 
 ![Demo 1](https://github.com/GursheeshSingh/creditcard_slider/raw/master/screenshots/screenshot_1.gif)
