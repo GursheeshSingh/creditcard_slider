@@ -182,7 +182,7 @@ class CreditCardSliderRepeatBothSides extends StatelessWidget {
       body: Center(
         child: CreditCardSlider(
           _creditCards,
-          repeatCards: RepeatCards.bothSides,
+          repeatCards: RepeatCards.bothDirection,
         ),
       ),
     );

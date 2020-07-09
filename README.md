@@ -60,7 +60,8 @@ Use field ***percentOfUpperCard*** of **CreditCardSlider**
 
 You can also specify initial card index to appear in slider
 
-initialCard is 0 index based
+* initialCard is 0 index based
+* If not specified, initialCard is 0
 
       @override
       Widget build(BuildContext context) {
@@ -77,7 +78,7 @@ initialCard is 0 index based
 ## Repeat cards
 **NOTE:** Added in 1.0.1
 
-You can also repeat cards in down or both sides
+You can also repeat cards in down or both direction (up and down)
 
 ### Repeat in down direction only
 

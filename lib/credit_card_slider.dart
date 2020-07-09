@@ -8,11 +8,11 @@ import 'credit_card_widget.dart';
 
 typedef void OnCardClicked(int index);
 
-enum RepeatCards { down, bothSides, none }
+enum RepeatCards { down, bothDirection, none }
 
 ///[initialCard] is 0 based index
-///[repeatCards] can have 3 values - [RepeatCards.none], [RepeatCards.down] or [RepeatCards.bothSides]
-///Use [RepeatCards.bothSides] for repeating cards on both sides
+///[repeatCards] can have 3 values - [RepeatCards.none], [RepeatCards.down] or [RepeatCards.bothDirection]
+///Use [RepeatCards.bothDirection] for repeating cards on both sides
 ///Use [RepeatCards.down] for repeating cards only down
 class CreditCardSlider extends StatelessWidget {
   PageController _pageController;
@@ -35,7 +35,7 @@ class CreditCardSlider extends StatelessWidget {
     assert(percentOfUpperCard >= 0);
     assert(percentOfUpperCard <= pi / 2);
 
-    if (repeatCards == RepeatCards.bothSides) {
+    if (repeatCards == RepeatCards.bothDirection) {
       initialCard = (creditCards.length * 1000000) + initialCard;
     }
     _pageController = PageController(
@@ -47,7 +47,7 @@ class CreditCardSlider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (repeatCards == RepeatCards.down ||
-        repeatCards == RepeatCards.bothSides) {
+        repeatCards == RepeatCards.bothDirection) {
       return PageView.builder(
         controller: _pageController,
         scrollDirection: Axis.vertical,
