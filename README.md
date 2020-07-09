@@ -104,7 +104,7 @@ You can also repeat cards in down or both direction (up and down)
           body: Center(
             child: CreditCardSlider(
               _creditCards,
-              repeatCards: RepeatCards.bothSides,
+              repeatCards: RepeatCards.bothDirection,
             ),
           ),
         );
