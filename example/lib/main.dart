@@ -135,6 +135,42 @@ var _creditCards = [
     ),
   ),
   CreditCard(
+    cardBackground:
+    ImageCardBackground(AssetImage('images/background_sample.jpg')),
+    cardNetworkType: CardNetworkType.americanExpress,
+    cardHolderName: 'John Doe',
+    cardNumber: '2434 2434 **** ****',
+    company: CardCompany.virgin,
+    validity: Validity(
+      validThruMonth: 1,
+      validThruYear: 20,
+    ),
+  ),
+  CreditCard(
+    cardBackground:
+    ImageCardBackground(AssetImage('images/background_sample.jpg')),
+    cardNetworkType: CardNetworkType.discover,
+    cardHolderName: 'John Doe',
+    cardNumber: '2434 2434 **** ****',
+    company: CardCompany.virgin,
+    validity: Validity(
+      validThruMonth: 1,
+      validThruYear: 20,
+    ),
+  ),
+  CreditCard(
+    cardBackground:
+    ImageCardBackground(AssetImage('images/background_sample.jpg')),
+    cardNetworkType: CardNetworkType.unionPay,
+    cardHolderName: 'John Doe',
+    cardNumber: '2434 2434 **** ****',
+    company: CardCompany.virgin,
+    validity: Validity(
+      validThruMonth: 1,
+      validThruYear: 20,
+    ),
+  ),
+  CreditCard(
     cardNetworkType: CardNetworkType.rupay,
     cardHolderName: 'THE BORING DEVELOPER',
     cardNumber: '2434 2434 **** ****',
