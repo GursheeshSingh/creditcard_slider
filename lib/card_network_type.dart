@@ -33,6 +33,30 @@ class CardNetworkType {
     ),
   );
 
+  static CardNetworkType americanExpress = CardNetworkType(
+    Image.asset(
+      'images/amex_logo.png',
+      height: 50,
+      package: 'credit_card_slider',
+    )
+  );
+
+  static CardNetworkType discover = CardNetworkType(
+    Image.asset(
+      'images/discover.png',
+      height: 50,
+      package: 'credit_card_slider',
+    )
+  );
+
+  static CardNetworkType unionPay = CardNetworkType(
+    Image.asset(
+      'images/union_pay.png',
+      height: 50,
+      package: 'credit_card_slider',
+    )
+  );
+
   final Widget widget;
 
   const CardNetworkType(this.widget);
