@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 
 class PageSlider extends StatelessWidget {
-  PageController _pageController;
+  PageController? _pageController;
 
   final List<Widget> cards;
   final double percentOfUpperCard;
@@ -45,15 +45,15 @@ class PageSlider extends StatelessWidget {
 
   _builder(int index, int length) {
     return AnimatedBuilder(
-      animation: _pageController,
+      animation: _pageController!,
       builder: (context, child) {
         double value = 1.0;
 
         int mIndex = index % length;
         int mInitialPage = initialPage % length;
 
-        if (_pageController.position.haveDimensions) {
-          value = _pageController.page - index;
+        if (_pageController!.position.haveDimensions) {
+          value = _pageController!.page! - index;
 
           if (value >= 0) {
             double _lowerLimit = percentOfUpperCard;
