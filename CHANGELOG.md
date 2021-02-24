@@ -1,3 +1,6 @@
+## 2.0.0 - 24 February 2021
+* Migrated package to null safety
+
 ## 1.0.0 - 27 May 2020
 * Basic card slider
 

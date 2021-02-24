@@ -15,11 +15,11 @@ enum RepeatCards { down, bothDirection, none }
 ///Use [RepeatCards.bothDirection] for repeating cards on both sides
 ///Use [RepeatCards.down] for repeating cards only down
 class CreditCardSlider extends StatelessWidget {
-  PageController _pageController;
+  PageController? _pageController;
 
   final List<CreditCard> creditCards;
   final double percentOfUpperCard;
-  final OnCardClicked onCardClicked;
+  final OnCardClicked? onCardClicked;
   final RepeatCards repeatCards;
   int initialCard;
 
@@ -64,15 +64,15 @@ class CreditCardSlider extends StatelessWidget {
 
   _builder(int index, int length) {
     return AnimatedBuilder(
-      animation: _pageController,
+      animation: _pageController!,
       builder: (context, child) {
         double value = 1.0;
 
         int mIndex = index % length;
         int mInitialPage = initialCard % length;
 
-        if (_pageController.position.haveDimensions) {
-          value = _pageController.page - index;
+        if (_pageController!.position.haveDimensions) {
+          value = _pageController!.page! - index;
 
           if (value >= 0) {
             double _lowerLimit = percentOfUpperCard;

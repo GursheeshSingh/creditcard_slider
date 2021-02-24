@@ -7,20 +7,20 @@ import 'card_network_type.dart';
 import 'validity.dart';
 
 class CreditCard extends StatelessWidget {
-  final CardBackground cardBackground;
-  final CardNetworkType cardNetworkType;
-  final CardCompany company;
-  final String cardHolderName;
-  final String cardNumber;
+  final CardBackground? cardBackground;
+  final CardNetworkType? cardNetworkType;
+  final CardCompany? company;
+  final String? cardHolderName;
+  final String? cardNumber;
   final double roundedCornerRadius;
-  final Validity validity;
+  final Validity? validity;
   final Color numberColor;
   final Color validityColor;
   final Color cardHolderNameColor;
   final bool showChip;
 
   const CreditCard({
-    @required this.cardBackground,
+    this.cardBackground,
     this.cardNetworkType,
     this.cardNumber,
     this.cardHolderName,
@@ -47,7 +47,7 @@ class CreditCard extends StatelessWidget {
           company != null
               ? Align(
                   alignment: Alignment.centerLeft,
-                  child: company.widget,
+                  child: company!.widget,
                 )
               : SizedBox.shrink(),
           showChip ? _buildChip() : SizedBox.shrink(),
@@ -67,19 +67,19 @@ class CreditCard extends StatelessWidget {
 
   _buildBackground() {
     if (cardBackground is SolidColorCardBackground) {
-      SolidColorCardBackground solidColorCardBackground = cardBackground;
+      SolidColorCardBackground solidColorCardBackground = cardBackground as SolidColorCardBackground;
       return BoxDecoration(
         borderRadius: BorderRadius.circular(roundedCornerRadius),
         color: solidColorCardBackground.backgroundColor,
       );
     } else if (cardBackground is GradientCardBackground) {
-      GradientCardBackground gradientCardBackground = cardBackground;
+      GradientCardBackground gradientCardBackground = cardBackground as GradientCardBackground;
       return BoxDecoration(
         borderRadius: BorderRadius.circular(roundedCornerRadius),
         gradient: gradientCardBackground.gradient,
       );
     } else if (cardBackground is ImageCardBackground) {
-      ImageCardBackground imageCardBackground = cardBackground;
+      ImageCardBackground imageCardBackground = cardBackground as ImageCardBackground;
       return BoxDecoration(
         borderRadius: BorderRadius.circular(roundedCornerRadius),
         image: imageCardBackground.build(),
@@ -105,13 +105,13 @@ class CreditCard extends StatelessWidget {
   }
 
   _buildCardNumber() {
-    if (cardNumber == null || cardNumber.trim() == "") {
+    if (cardNumber == null || cardNumber!.trim() == "") {
       return SizedBox.shrink();
     }
     return Align(
       alignment: Alignment.centerLeft,
       child: Text(
-        cardNumber,
+        cardNumber!,
         style: TextStyle(
           fontFamily: 'creditcard',
           package: 'credit_card_slider',
@@ -129,7 +129,7 @@ class CreditCard extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        validity.validFromMonth != null || validity.validFromYear != null
+        validity!.validFromMonth != null || validity!.validFromYear != null
             ? Column(
                 children: <Widget>[
                   Text(
@@ -141,7 +141,7 @@ class CreditCard extends StatelessWidget {
                   ),
                   SizedBox(height: 2),
                   Text(
-                    '${validity.validFromMonth.toString().padLeft(2, '0')}/${validity.validFromYear.toString().padLeft(2, '0')}',
+                    '${validity!.validFromMonth.toString().padLeft(2, '0')}/${validity!.validFromYear.toString().padLeft(2, '0')}',
                     style: TextStyle(
                       color: validityColor,
                       fontSize: 10,
@@ -152,7 +152,7 @@ class CreditCard extends StatelessWidget {
                 ],
               )
             : SizedBox.shrink(),
-        validity.validFromMonth != null || validity.validFromYear != null
+        validity!.validFromMonth != null || validity!.validFromYear != null
             ? SizedBox(width: 24)
             : SizedBox.shrink(),
         Column(
@@ -166,7 +166,7 @@ class CreditCard extends StatelessWidget {
             ),
             SizedBox(height: 2),
             Text(
-              '${validity.validThruMonth.toString().padLeft(2, '0')}/${validity.validThruYear.toString().padLeft(2, '0')}',
+              '${validity!.validThruMonth.toString().padLeft(2, '0')}/${validity!.validThruYear.toString().padLeft(2, '0')}',
               style: TextStyle(
                 color: validityColor,
                 fontSize: 10,
@@ -188,7 +188,7 @@ class CreditCard extends StatelessWidget {
             ? Expanded(
                 flex: 3,
                 child: AutoSizeText(
-                  cardHolderName.toUpperCase(),
+                  cardHolderName!.toUpperCase(),
                   maxLines: 1,
                   minFontSize: 8,
                   style: TextStyle(
@@ -211,6 +211,6 @@ class CreditCard extends StatelessWidget {
     if (cardNetworkType == null) {
       return SizedBox.shrink();
     }
-    return cardNetworkType.widget;
+    return cardNetworkType!.widget;
   }
 }

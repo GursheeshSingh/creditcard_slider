@@ -28,8 +28,10 @@ class MainPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            RaisedButton(
-              color: kBlue,
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: kBlue
+              ),
               child: Text('Simple card slider',
                   style: TextStyle(color: Colors.white)),
               onPressed: () {
@@ -41,8 +43,10 @@ class MainPage extends StatelessWidget {
                 );
               },
             ),
-            RaisedButton(
-              color: kBlue,
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  primary: kBlue
+              ),
               child: Text('Credit card slider with repeating down cards',
                   style: TextStyle(color: Colors.white)),
               onPressed: () {
@@ -54,9 +58,11 @@ class MainPage extends StatelessWidget {
                 );
               },
             ),
-            RaisedButton(
-              color: kBlue,
-              padding: EdgeInsets.all(8),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: kBlue,
+                padding: const EdgeInsets.all(8),
+              ),
               child: Text(
                   'Credit card slider with repeating cards in both direction',
                   style: TextStyle(color: Colors.white)),
